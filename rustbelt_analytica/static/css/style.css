@@ -135,9 +135,14 @@ body{
 
 }
 
-h1,h2,h3,h4{
+h3,h2 {
+	text-align: left;
+	font-family: 'EB Garamond', serif;
+}
 
-	font-family: "Helvetica", monospace;
+h1,h4{
+
+	font-family: 'EB Garamond', serif;
 	text-align: center;
 
 	
@@ -146,7 +151,7 @@ h1,h2,h3,h4{
 
 h1{
 
-	font-family: "Helvetica", monospace;
+	font-family: 'EB Garamond', serif;
 	font-size: 3rem;
 	line-height: 1.25;
 	text-transform: uppercase;
@@ -158,11 +163,39 @@ p{
 
 	margin-top: 0;
 	margin-bottom: 2em;
-	font-family: "Helvetica", monospace;
-		font-size: 19px;
+	font-family: 'EB Garamond', serif;
+		font-size: 18px;
 		line-height: 1.6;
 		-webkit-font-smoothing: antialiased;
 
+}
+
+table{
+	font-family: 'EB Garamond', serif;
+		font-size: 16px;
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+}
+
+li{
+	font-family: 'EB Garamond', serif;
+		font-size: 15px;
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+}
+
+i{
+	 font-family: 'EB Garamond', serif;
+		font-size: 16px;
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+}
+
+a{
+	font-family: 'EB Garamond', serif;
+		font-size: 16px;
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
 }
 
 main{
@@ -214,9 +247,9 @@ circle:hover {
   stroke-linejoin: round;
   fill: #028fcc !important;
   cursor: pointer;
-}*/
+}
 
-/*#path67 {
+#path67 {
   fill: none !important;
   stroke: #2cb3f0 !important;
   cursor: default;

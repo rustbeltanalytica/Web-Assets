@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>The Future of Growth</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+
+  <style type="text/css">
+    html {
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      /*overflow: hidden;*/
+    }
+
+    .container {
+      height: 100vh;
+      width: 100vh;
+      background-color: #131417;
+    }
+
+    .box {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: end;
+              justify-content: flex-end;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/smoke_texture2714-min.jpg") center center no-repeat;
+      background-size: cover;
+      box-shadow: 0 0 50px 0 rgba(75, 27, 27, 0.7);
+      z-index: 1;
+      overflow: hidden;
+    }
+    .box__row-cell {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      width: 24%;
+      height: 29%;
+      background-color: rgba(0, 0, 0, 0.5);
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      -webkit-transition: all 400ms 600ms, width 300ms 300ms, background-color 300ms 600ms;
+      transition: all 400ms 600ms, width 300ms 300ms, background-color 300ms 600ms;
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .box__row-cell:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      -webkit-transition: 500ms;
+      transition: 500ms;
+    }
+    .box__row-cell:before {
+      content: '';
+      position: absolute;
+      top: -5%;
+      left: -5%;
+      width: 110%;
+      height: 110%;
+      background-color: rgba(0, 0, 0, 0);
+      opacity: 1;
+      -webkit-transition: 300ms;
+      transition: 300ms;
+      z-index: -3;
+    }
+    .box__row-cell:hover:before {
+      background-color: #F25555;
+    }
+    .box__row-cell-info {
+      margin-left: 20px;
+      width: 100px;
+      color: #fff;
+      -webkit-transition: 400ms 850ms;
+      transition: 400ms 850ms;
+    }
+    .box__row-cell-info-ep {
+      margin-top: 25px;
+      font-size: 10px;
+    }
+    .box__row-cell-info-ep span {
+      padding-left: 10px;
+    }
+    @media screen and (max-height: 915px) {
+      .box__row-cell-info-ep {
+        margin-top: 10px;
+      }
+    }
+    .box__row-cell-info-title {
+      letter-spacing: 2px;
+      margin-top: 15px;
+      font-size: 20px;
+    }
+    @media screen and (max-height: 692px) {
+      .box__row-cell-info-title {
+        margin-top: 8px;
+        font-size: 18px;
+      }
+    }
+    @media screen and (max-height: 692px) {
+      .box__row-cell-info-title {
+        font-size: 16px;
+        margin-top: 4px;
+      }
+    }
+    .box__row-cell-info-sign {
+      margin: 15px 0 0 2px;
+      height: 3px;
+      width: 20px;
+      background-color: #fff;
+      border-radius: 1px;
+      -webkit-transition: 200ms;
+      transition: 200ms;
+      z-index: 10;
+    }
+    @media screen and (max-height: 800px) {
+      .box__row-cell-info-sign {
+        margin-top: 10px;
+      }
+    }
+    .box__row-cell-info--time {
+      position: absolute;
+      bottom: 18px;
+      font-size: 10px;
+    }
+    @media screen and (max-height: 650px) {
+      .box__row-cell-info--time {
+        right: 20px;
+        text-align: right;
+      }
+    }
+    .box__row-cell-info--full {
+      -webkit-transform: translateX(-50px);
+              transform: translateX(-50px);
+      opacity: 0;
+      margin: 50px 0 0 90px;
+      -webkit-transition: 300ms;
+      transition: 300ms;
+    }
+    .box__row-cell-info--full-heading {
+      line-height: 60px;
+      width: 300px;
+      color: #131313;
+      font-size: 60px;
+      font-weight: 900;
+    }
+    .box__row-cell-info--full-par {
+      padding-top: 50px;
+      color: #fff;
+    }
+    .box__row-cell:nth-child(2) {
+      left: 75%;
+    }
+    .box__row-cell:nth-child(3) {
+      left: 100%;
+    }
+    .box__row:nth-child(2) .box__row-cell {
+      top: 67.5%;
+    }
+    .box__row:nth-child(3) .box__row-cell {
+      top: 100%;
+    }
+    .box__content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      background-color: #1C1E22;
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 0;
+      z-index: -10;
+      -webkit-transition: all 400ms 600ms, z-index 0ms 0ms;
+      transition: all 400ms 600ms, z-index 0ms 0ms;
+    }
+    .box__content-wrapper {
+      position: relative;
+      margin-left: auto;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .box__content-inner {
+      position: absolute;
+      left: 18px;
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      opacity: 0;
+      -webkit-transition: 400ms, opacity 200ms;
+      transition: 400ms, opacity 200ms;
+    }
+    .box__content-text {
+      padding: 20px 0 30px 8px;
+      width: 600px;
+      max-width: 100%;
+      color: #ababab;
+    }
+    .box__content-text-heading {
+      position: relative;
+      margin: 50px 0 20px 0;
+      color: #f5f5f5;
+      font-size: 16px;
+    }
+    .box__content-text-heading:after {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: 0;
+      width: 20px;
+      height: 2px;
+      background-color: #a73c3c;
+      box-shadow: 0 0 1px 0 #a73c3c;
+    }
+    .box__content-text-par {
+      line-height: 22px;
+      padding-bottom: 10px;
+      font-size: 14px;
+    }
+    .box__content-text-list {
+      list-style-type: none;
+    }
+    .box__content-text-item {
+      padding-bottom: 3px;
+      font-size: 14px;
+    }
+    .box__content-text-link {
+      text-decoration: none;
+      color: #ababab;
+      font-size: 14px;
+    }
+    .box__content-text-link:hover {
+      text-decoration: underline;
+    }
+    .box__close {
+      position: absolute;
+      top: 50px;
+      left: 100px;
+      height: 20px;
+      width: 20px;
+      font-size: 0;
+      cursor: pointer;
+      z-index: 9999;
+    }
+    .box__close:after, .box__close:before {
+      content: '';
+      position: absolute;
+      top: 9px;
+      left: -14px;
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+      width: 35px;
+      height: 2px;
+      background-color: #fff;
+      opacity: 0;
+      -webkit-transition: 500ms;
+      transition: 500ms;
+    }
+    .box__close:before {
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+    }
+    .box__close span {
+      position: relative;
+      display: inline-block;
+      margin: 1px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #fff;
+      -webkit-transition: 400ms 500ms;
+      transition: 400ms 500ms;
+    }
+    .box__close span:nth-child(6) {
+      right: 6px;
+    }
+    .box__close span:nth-child(7) {
+      right: 6px;
+    }
+    .box__close span:nth-child(8) {
+      right: 6px;
+    }
+    .box__close span:nth-child(9) {
+      right: 6px;
+    }
+    .box__close span:nth-child(10) {
+      right: 6px;
+    }
+    .box__episodes {
+      position: absolute;
+      top: 28%;
+      right: 15px;
+      color: #fff;
+      letter-spacing: 2px;
+      font-size: 10px;
+    }
+    .box__episodes:after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: 2px;
+      width: 15px;
+      height: 1px;
+      background-color: #fff;
+    }
+    .box__smokebg {
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      -webkit-transform: translate3d(0, 0, 0) rotate(0.01deg);
+              transform: translate3d(0, 0, 0) rotate(0.01deg);
+      width: 120%;
+      height: 120%;
+      background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/smoke-min.png") center center no-repeat;
+      background-size: cover;
+      z-index: -10;
+      opacity: .5;
+      -webkit-animation: smokebg 60s infinite alternate;
+              animation: smokebg 60s infinite alternate;
+    }
+    @-webkit-keyframes smokebg {
+      25% {
+        -webkit-transform: translate3d(100px, 0, 0) rotate(0.01deg);
+                transform: translate3d(100px, 0, 0) rotate(0.01deg);
+      }
+      50% {
+        -webkit-transform: translate3d(75px, -25px, 0) rotate(0.01deg);
+                transform: translate3d(75px, -25px, 0) rotate(0.01deg);
+      }
+      75% {
+        -webkit-transform: translate3d(45px, 30px, 0) rotate(0.01deg);
+                transform: translate3d(45px, 30px, 0) rotate(0.01deg);
+      }
+      100% {
+        -webkit-transform: translate3d(25px, -15px, 0) rotate(0.01deg);
+                transform: translate3d(25px, -15px, 0) rotate(0.01deg);
+      }
+    }
+    @keyframes smokebg {
+      25% {
+        -webkit-transform: translate3d(100px, 0, 0) rotate(0.01deg);
+                transform: translate3d(100px, 0, 0) rotate(0.01deg);
+      }
+      50% {
+        -webkit-transform: translate3d(75px, -25px, 0) rotate(0.01deg);
+                transform: translate3d(75px, -25px, 0) rotate(0.01deg);
+      }
+      75% {
+        -webkit-transform: translate3d(45px, 30px, 0) rotate(0.01deg);
+                transform: translate3d(45px, 30px, 0) rotate(0.01deg);
+      }
+      100% {
+        -webkit-transform: translate3d(25px, -15px, 0) rotate(0.01deg);
+                transform: translate3d(25px, -15px, 0) rotate(0.01deg);
+      }
+    }
+    .box__title {
+      position: absolute;
+      top: 25%;
+      left: 9%;
+    }
+    .box__title-heading {
+      position: relative;
+      color: #7b2222;
+      letter-spacing: 3px;
+      line-height: 65px;
+      font-size: 65px;
+    }
+    .box__title-heading:after {
+      content: '';
+      position: absolute;
+      top: 170px;
+      left: 0;
+      width: 20px;
+      height: 2px;
+      box-shadow: 0 0 1px 0 #000;
+      background-color: #000;
+    }
+    .box__title-heading span {
+      letter-spacing: 6px;
+      color: #fff;
+    }
+    .box__title-par {
+      text-transform: uppercase;
+      margin-top: 35%;
+      color: #7b2222;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .active {
+      left: 0 !important;
+      top: 0 !important;
+      height: 100%;
+      width: 50%;
+      background-color: #F25555;
+      z-index: 5;
+      -webkit-transition: all 400ms 400ms, width 300ms 800ms;
+      transition: all 400ms 400ms, width 300ms 800ms;
+      cursor: default;
+      opacity: 1 !important;
+    }
+    .active .box__row-cell-info:nth-child(1) {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+      opacity: 0;
+      -webkit-transition: 300ms 0ms ease-in, opacity 375ms 0ms;
+      transition: 300ms 0ms ease-in, opacity 375ms 0ms;
+    }
+    .active .box__row-cell-info:nth-child(2) {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+      opacity: 0;
+      -webkit-transition: 300ms 50ms ease-in, opacity 375ms 50ms;
+      transition: 300ms 50ms ease-in, opacity 375ms 50ms;
+    }
+    .active .box__row-cell-info:nth-child(3) {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+      opacity: 0;
+      -webkit-transition: 300ms 100ms ease-in, opacity 375ms 100ms;
+      transition: 300ms 100ms ease-in, opacity 375ms 100ms;
+    }
+    .active .box__row-cell-info:nth-child(4) {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+      opacity: 0;
+      -webkit-transition: 300ms 150ms ease-in, opacity 375ms 150ms;
+      transition: 300ms 150ms ease-in, opacity 375ms 150ms;
+    }
+    .active .box__row-cell-info--full {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+      -webkit-transition: 300ms 900ms;
+      transition: 300ms 900ms;
+    }
+
+    .cell-fade {
+      opacity: 0;
+      -webkit-transition: all 400ms 400ms, width 300ms 800ms, opacity 200ms 300ms;
+      transition: all 400ms 400ms, width 300ms 800ms, opacity 200ms 300ms;
+    }
+
+    .hover-cell:after {
+      opacity: 1;
+    }
+
+    .show-content {
+      opacity: 1;
+      z-index: 2;
+      -webkit-transition: all 300ms 400ms, z-index 0ms 0ms;
+      transition: all 300ms 400ms, z-index 0ms 0ms;
+    }
+    .show-content .box__content-inner {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+      -webkit-transition: 300ms 1100ms;
+      transition: 300ms 1100ms;
+    }
+
+    .box-close-active:after, .box-close-active:before {
+      opacity: 1;
+      -webkit-transform: rotate(135deg);
+              transform: rotate(135deg);
+      -webkit-transition: 500ms 800ms;
+      transition: 500ms 800ms;
+    }
+    .box-close-active:before {
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+    }
+    .box-close-active span {
+      opacity: 0;
+      -webkit-transition: 0ms 800ms;
+      transition: 0ms 800ms;
+    }
+
+    // Animate the size, outside
+    .pulse:hover, 
+    .pulse:focus {
+      animation: pulse 1s;
+      box-shadow: 0 0 0 2em rgba(#fff,0);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 var(--hover); }
+    }
+
+
+
+    button {  
+      color: #ef6eae;
+      transition: 0.25s;
+      
+      &:hover,
+      &:focus { 
+        border-color: var(--hover);
+        color: #fff;
+      }
+    }
+
+    button {
+      background: none;
+      border: 2px solid;
+      font: inherit;
+      line-height: 1;
+      margin: 0.5em;
+      padding: 1em 2em;
+    }
+
+    
+  </style>
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <div class="box">
+    <div class="box__row">
+      <div data-cell='1' class="box__row-cell">
+        <div class="box__row-cell-info">
+          <p class='box__row-cell-info-ep'></p>
+        </div>
+        <div class="box__row-cell-info">
+          <p class='box__row-cell-info-title'>Quality not Quantity</p>
+        </div>
+        <div class="box__row-cell-info">
+          <div class="box__row-cell-info-sign"></div>
+        </div>
+        <div class="box__row-cell-info--full">
+          <h1 class="box__row-cell-info--full-heading">Quality of life, not quantity of lives</h1>
+         <!--  <p class="box__row-cell-info--full-par">
+            Exerts.
+          </p> -->
+        </div>
+      </div>
+
+
+      <div data-cell='2' class="box__row-cell">
+        <div class="box__row-cell-info">
+          <p class=' box__row-cell-info-ep'></p>
+        </div>
+        <div class="box__row-cell-info">
+          <p class=' box__row-cell-info-title'>Progress and <br>Pain</p>
+        </div>
+        <div class="box__row-cell-info">
+          <div class="box__row-cell-info-sign"></div>
+        </div>
+        <div class="box__row-cell-info--full">
+          <h1 class="box__row-cell-info--full-heading">Progress and Pain</h1>
+         <!--  <p class="box__row-cell-info--full-par">
+            Seriously though, it's over.
+          </p> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="box__row">
+      <div data-cell='3' class="box__row-cell">
+        <div class="box__row-cell-info">
+          <p class=' box__row-cell-info-ep'></p>
+        </div>
+        <div class="box__row-cell-info">
+          <p class=' box__row-cell-info-title'>Efficiency v. Resiliency</p>
+        </div>
+        <div class="box__row-cell-info">
+          <div class="box__row-cell-info-sign"></div>
+        </div>
+        <div class="box__row-cell-info--full">
+          <h1 class="box__row-cell-info--full-heading">Efficiency v. Resiliency</h1>
+          <!-- <p class="box__row-cell-info--full-par">
+            Seriously though, it's over.
+          </p> -->
+        </div>
+      </div>
+
+      <div data-cell='4' class="box__row-cell">
+        <div class="box__row-cell-info">
+          <p class=' box__row-cell-info-ep'></p>
+        </div>
+        <div class="box__row-cell-info">
+          <p class=' box__row-cell-info-title'>Summary</p>
+        </div>
+        <div class="box__row-cell-info">
+          <div class="box__row-cell-info-sign"></div>
+        </div>
+        <div class="box__row-cell-info--full">
+          <h1 class="box__row-cell-info--full-heading">Summary</h1>
+         <!--  <p class="box__row-cell-info--full-par">
+            Seriously though, it's over.
+          </p> -->
+        </div>
+      </div>
+    </div>
+
+    <div data-content='1' class="box__content">
+      <div class="box__content-wrapper">
+        <div class="box__content-inner">
+          <div class="box__content-text">
+            <h2 class='box__content-text-heading'>Quality Over Quantity</h2>
+            <p class='box__content-text-par'>
+              Many places, including Cleveland, have gone through the first economic restructuring from Manufacturing to Services. Fewer places have gone through the second economic restructuring from Services to Information Technology. 
+            </p>
+            <p class='box__content-text-par'>
+              The latter restructuring has been dubbed “The Fourth Industrial Revolution”, described as a set of technologies “such as artificial intelligence, genome editing, augmented reality, robotics, and 3-D printing, [that] are rapidly changing the way humans create, exchange, and distribute value.”
+            </p>
+            <p class='box__content-text-par'>
+              Just as manufacturing deconcentrated from the Northeast and Midwest due to price constraints in the mid-20th century, so too is technology increasingly decamping from Northern California. “Our concentration in San Francisco is not serving us any longer,” noted Twitter CEO Jack Dorsey recently, “and we will strive to be a far more distributed workforce, which we will use to improve our execution.
+            </p>
+            <p class='box__content-text-par'>
+              With the rise of COVID-19 and the social distancing practices becoming the new norm, expect these “death of distance” trends to advance, affecting dense, costly, technologically-oriented cities the hardest. The trend of inland Millennials, for instance, flocking to the coasts—one Brooklyn borough president recently remarked that NYC’s new arrivals needed to “go back to Iowa, go back to Ohio”[1]—is now an outdated migratory model. What was “in”—urban consumer amenities meant to attract newcomers—is now “out”; and what was “out”—a city and state’s capacity to mitigate global risk via quick-witted policy and logistics—is now “in”. 
+            </p>
+            <p class='box__content-text-par'>
+              Ohio’s reputation re: its COVID-19 response is not simply a public health policy, but an economic development policy as well.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-content='2' class="box__content">
+      <div class="box__content-wrapper">
+        <div class="box__content-inner">
+          <div class="box__content-text">
+            <h2 class='box__content-text-heading'>Progress and Pain</h2>
+            <p class='box__content-text-par'>
+              But the rise of the Quaternary era has meant an increasing ability to automate tasks, from assembling to packaging to servicing to translation to diagnostics. The choice for execs, then, to increase output and reduce labor on one hand, or slow profit and bloat processes on the other, well, it often isn’t a choice. Efficiency reigns. “[E]xecutives are spending billions of dollars to transform their businesses into lean, digitized, highly automated operations,” explains Kevin Roose of the New York Times. “They crave the fat profit margins automation can deliver, and they see A.I. as a golden ticket to savings…letting them whittle thousands of workers down to just a few dozen.”
+            </p>
+            <p class='box__content-text-par'>
+              Well, we got an economic restructuring from Manufacturing to Services that began some time back, dislocating Rust Belt workers from living wages. MIT’s David Autor recently showed that much of the working class didn’t “graduate” into knowledge economy work, but instead became subsistent on lower-wage service work. A “barbelling” of the labor market thus ensued, with knowledge workers on one end and service workers on the other. The father of term “knowledge economy”, Peter Drucker, envisioned such a scenario. “Knowledge workers and service workers are not ‘classes’ in the traditional sense,” Peter Drucker wrote in 1992. “But there is a danger that … society will become a class society unless service workers attain both income and dignity.”
+            </p>
+            <p class='box__content-text-par'>
+              Knowledge- and tech-worker neighborhoods are flush with investment, manifest as a cornucopia of goods and services that check-off Maslow’s hierarchy of needs: physical safety, healthy food, clean air and water, quality housing, good schools and healthcare, pretty aesthetics and parks, a strong social fabric and concomitant information access, not to mention the freedom from scarcity that allows the luxury of aspiration. Meanwhile, disamenities grow in areas of isolation: violence and trauma, dirty air and water, deteriorating housing, poor schools and health services, a social bond break with less information and support, and a lack of a psychological and spiritual reprieve that comes with perpetually existing without enough. 
+            </p>
+            <p class='box__content-text-par'>
+              Still, pandemics don’t afford the luxury of looking back. What it does offer is a respite from the delusion that economic progress has not meant societal costs. For months, almost everyone was home and almost everything stopped. The plagued grabbed us by the proverbial jowl and made us look in the mirror, reflecting the fact that it’s the most economically and physically vulnerable that are out about, tending to a capitalism that hasn’t been tending to them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-content='3' class="box__content">
+      <div class="box__content-wrapper">
+        <div class="box__content-inner">
+          <div class="box__content-text">
+            <h2 class='box__content-text-heading'>Efficiency v. Resiliency</h2>
+            <p class='box__content-text-par'>
+              This “leaning-and-meaning” of the private sector was motivated by an aggressively normative belief that executive managers are “the agent of the individuals who own the corporation…and his Primary responsibility is to them,” so notes Milton Friedman in his famed 1970 New York Times piece “The Social Responsibility of Business is to Increase Its Profits.” That dogma has since became doctrine, made real by the most standard of consultancy playbooks: efficiency as a means and profit as an end.
+            </p>
+            <p class='box__content-text-par'>
+              Arguably the biggest innovation-led economic development policy push of recent memory was that of “Blockland”, the aim of which was to capitalize on blockchain technology as a means to make firms and government more efficient. But yet another way to “lean and mean” everything in the name of profit is simply not on a top 10 list of what the Cleveland collective needs right now, at least if an honest scan of the local landscape is had. 
+            </p>
+            <p class='box__content-text-par'>
+              The story of efficiency, then, it’s just so hard to break. But reality doesn’t care. The increasing imbalance between the market, government, and civil society is not working. The conflation of 1918 (pandemic), 1929 (depression), and 1968 (civil unrest) in a span of two months tells as much. And while the issues rooting the crises are decades in the making, it’s been a slow-enough boil to keep the shreds of the path dependency intact. Until now. The frog is out of the stew. The Reagan-Thatcher world system is dead and dying. The question now turns to “What next?”
+            </p>
+            <p class='box__content-text-par'>
+              That we are at a societal tipping point while having more access to technology than ever, well, it seems counterintuitive. But when you unpack how our tools have been used, it’s not. As noted by the University College of London’s Nicholas Maxwell, the issue boils down to the fact that man’s need to solve the problems of science have not been met with equal energy spent on the problems of living.    “It is…of decisive importance to appreciate that all global problems have arisen because of a massive increase in scientific knowledge and technology without a concomitant increase in global wisdom,” Maxwell notes. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-content='4' class="box__content">
+      <div class="box__content-wrapper">
+        <div class="box__content-inner">
+          <div class="box__content-text">
+            <h2 class='box__content-text-heading'>Summary</h2>
+            <p class='box__content-text-par'>
+              In the charting of the trajectory of Cleveland, many an effort is focused on "looking at the data". But data by itself is "dumb". For data to become knowledge, it needs to be contextualized via a "model of reality," so notes the scientist Judea Pearl. That model of reality, or theory of change, is too often missing in the local policy space. The effort linked below primarily attempts to fill that gap.
+            </p>
+            <p class='box__content-text-par'>
+              In doing so, the analysis looks at Cleveland and Cuyahoga County through the lens of evolutionary economics, showing how tech-driven advances in how goods are made and services are delivered has created significant advancement for some, and dislocation for most. Narrated against the backdrop of COVID-19, a global recession, and societal unrest related to the murder of George Floyd, the analysis meticulously shows how regional labor market bifurcation is translated "down" to the level of neighborhood via a bifurcation of the housing market, wherein positive amenities flow in knowledge-worker communities and negative amenities flow in service-worker communities. From there, it all ends up in the body, expressed as disparities in mental and physical well-being at the level of the individual. Such effects, then, "echo" forward inter-generationally, as is evidenced in the emergent field of epigenetics.
+            </p>
+            <p class='box__content-text-par'>
+              The analysis goes on to discuss how America's deepening divides are not the simply the result of technological advancement and the automation of labor; that is, the devaluation of labor is not value neutral. Rather, it's the result of ideological claims decades in the making, which have since become normalized in today's economic and political systems. This includes the laudation of stakeholder interests at the expense of shareholder interests, as well as the prioritization of market efficiency at the expense of community resilience. From a policy standpoint, the subsequent strategic lens has continually been about the future of work (i.e., what firms need), as opposed to the future of the worker (i.e., what firms and civil society needs). This is but one example of how we talk about key issues flows from how we've been conditioned to think about said issues.
+            </p>
+            <p class='box__content-text-par'>
+              The analysis goes on to show how a more reciprocal approach to market and societal well-being can be had. The paper proposes that a once-in-a-generation investment in Cleveland's population and public health landscape should be the economic development strategy for the region going forward.
+            </p>
+           <!--  <h2 class='box__content-text-heading'>Title</h2>
+            <ul class='box__content-text-list'>
+              <li class='box__content-text-item'>
+                Vitae ultrices
+              </li>
+              <li class='box__content-text-item'>
+                Aenean vel
+              </li>
+              <li class='box__content-text-item'>
+                Ut condimentum
+              </li>
+              <li class='box__content-text-item'>
+                Aenean metus
+              </li>
+              <li class='box__content-text-item'>
+                Quisque sodales
+              </li>
+              <li class='box__content-text-item'>
+                Accumsan metus
+              </li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box__close">
+      <span></span><br>
+      <span></span>
+      <span></span><br>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="box__episodes">Highlights</div>
+    <div class='box__smokebg'>
+      
+    </div>
+    <div class='box__title'>
+      <h1 class='box__title-heading'>The Future<br>
+        <span>of Growth</span></h1>
+          <!-- <button class="pulse">Pulse</button> -->
+
+       <!--  <a href="/fog" class="btn btn-1">
+            <svg>
+                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+            </svg>
+            Hover
+        </a> -->
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+  <script>
+    $(document).ready(function() {
+      var animation = false,
+          animDur = 1000,
+          $row = $('.box__row'),
+          $cell = $('.box__row-cell'),
+          $content = $('.box__content'),
+          $closeBtn = $('.box__close');
+
+      var animFalse = function() {
+        animation = false;
+      }
+
+      var active = function() {
+        if (animation) return;
+        var cellData = $(this).data('cell');
+        var $content = $('.box__content[data-content=' + cellData + ']');
+        animation = true;
+
+        $cell.addClass('cell-fade');
+        $(this).addClass('active');
+        $content.addClass('show-content');
+        $closeBtn.addClass('box-close-active');
+
+        setTimeout(animFalse, animDur);
+      }
+
+      var close = function() {
+        animation = true;
+        
+        $cell.removeClass('active cell-fade');
+        $content.removeClass('show-content');
+        $(this).removeClass('box-close-active');
+
+        setTimeout(animFalse, animDur);
+      }
+
+      $row.on('click', '.box__row-cell', active);
+      $closeBtn.on('click', close);
+      $cell.on({
+        mouseenter: function() {
+          $cell.addClass('hover-cell');
+          $(this).removeClass('hover-cell');
+        },
+        mouseleave: function() {
+          $cell.removeClass('hover-cell');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
